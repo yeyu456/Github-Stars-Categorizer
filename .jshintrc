@@ -1,0 +1,11 @@
+{
+	"eqeqeq": true,
+	"freeze": true,
+    "strict": true,
+    "esversion" : 6,
+    "devel" : true,
+    "browser" : true,
+    "globals" : {
+        "chrome": true
+    }
+}

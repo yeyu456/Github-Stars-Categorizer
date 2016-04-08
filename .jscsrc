@@ -1,0 +1,31 @@
+{
+	"disallowAnonymousFunctions": true,
+    "disallowEmptyBlocks": true,
+    "disallowIdenticalDestructuringNames": true,
+
+    "disallowIdentifierNames": [],
+    "disallowKeywords": ["eval"],
+    "requireCurlyBraces": [
+        "if",
+        "else",
+        "for",
+        "while",
+        "do",
+        "try",
+        "catch"
+    ],
+
+    "disallowMixedSpacesAndTabs": true,
+    "disallowTabs": true,
+
+    "disallowMultipleLineStrings": true,
+    "disallowNestedTernaries": true,
+    "maximumLineLength": {
+        "value": 80,
+        "tabSize": 4,
+        "allExcept": [ "functionSignature" ]
+    },
+    "maximumNumberOfLines": 300,
+
+    "requireCapitalizedConstructorsNew": true
+}
