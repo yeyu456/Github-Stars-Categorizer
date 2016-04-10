@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "minimum_chrome_version": "38",
+
+    "name": "Github-Stars-Categorizer",
+    "description": "Categorate your github stars.",
+    "version": "1.0.0",
+
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "storage",
+        "contextMenus",
+        "https://github.com/stars"
+    ],
+    "content_scripts": [{
+        "matches": [
+            "https://github.com/stars"
+        ],
+        "js": ["scripts/content.js"]
+    }],
+
+    "browser_action": {
+        "default_icon": "images/icon.png",
+        "default_popup": "popup.html"
+    },
+
+    "web_accessible_resources": [
+        "styles/beauty.css"
+    ]
+}
