@@ -35,7 +35,7 @@ gulp.task('copy', ['clean'], function (callback) {
     });
 });
 
-gulp.task('scss', ['copy'], function (callback) {
+gulp.task('scss', ['clean'], function (callback) {
     var stream = gulp.src(scssPath)
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
@@ -51,20 +51,20 @@ gulp.task('scss', ['copy'], function (callback) {
     });
 });
 
-gulp.task('webpack', ['copy'], function (callback) {
+gulp.task('webpack', ['clean'], function (callback) {
     webpack(webpackConf, function(err, stats) {
         if (err) {
-            gutil.log("[webpack] Error:", err);
+            gutil.log("[WEB-PACK] Error:", err);
             callback(err);
 
         } else {
-            gutil.log("[webpack] Success", stats.toString());
+            gutil.log("[WEB-PACK] Success", stats.toString());
             callback();
         }
     });
 });
 
-gulp.task('build', ['scss', 'webpack'], function (callback) {
+gulp.task('build', ['copy', 'scss', 'webpack'], function (callback) {
     var crx = new ChromeExtension({
         privateKey: fs.readFileSync("./src.pem")
     });
@@ -72,11 +72,11 @@ gulp.task('build', ['scss', 'webpack'], function (callback) {
         return crx.loadContents();
 
     }).then(function(archiveBuffer){
-        fs.writeFile('./build/A-Island-Optimizer.zip', archiveBuffer);
+        fs.writeFile('./build/Github-Stars-Categorizer.zip', archiveBuffer);
         return crx.pack(archiveBuffer);
 
     }).then(function(crxBuffer){
-        fs.writeFile('./build/A-Island-Optimizer.crx', crxBuffer);
+        fs.writeFile('./build/Github-Stars-Categorizer.crx', crxBuffer);
 
     }).then(callback);
 });

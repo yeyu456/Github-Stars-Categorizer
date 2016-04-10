@@ -21,7 +21,7 @@
     "disallowMultipleLineStrings": true,
     "disallowNestedTernaries": true,
     "maximumLineLength": {
-        "value": 80,
+        "value": 100,
         "tabSize": 4,
         "allExcept": [ "functionSignature" ]
     },
